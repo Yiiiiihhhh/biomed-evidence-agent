@@ -25,7 +25,7 @@ app_port: 7860
 4. 若有可用 DeepSeek 密钥，打开模型设置。测试会发起一次短模型调用。填写后可运行“AI 阅读与综述”，按平台用量计费。密钥仅留在页面内存，刷新后需重填。
 5. 导出证据 CSV、综述 Markdown 和审计 JSON。点击顶部“查看真实检索存档”可查看 2026-10-15 保存的公开接口结果；存档没有 AI 阅读或生成综述。
 
-完整演示脚本见 [docs/demo.md](docs/demo.md)，参赛说明见 [docs/submission.md](docs/submission.md)。
+[商业一页纸 PDF](docs/business-onepager.pdf) · [真实AI验收](docs/live-ai-acceptance.md) · [演示脚本](docs/demo.md) · [参赛说明](docs/submission.md)。
 
 ## 工作原理
 

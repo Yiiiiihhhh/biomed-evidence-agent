@@ -49,4 +49,6 @@ GitHub仓库链接：粘贴实际公开仓库地址。
 
 先保存草稿，确认两条链接在评委视角可访问、作品说明与真实功能一致，再正式提交。
 
-提交入口：[天猫OPC孵化赛道初赛](https://www.tuotuzju.com/hackathon/2/challenges?track=campus&stage=initial)。2026年10月15日已在浏览器核实官网显示：初赛为10.13 00:00—10.18 17:00，线上、自由命题，鼓励运行演示、试点验证与用户反馈；GitHub与魔搭链接需为HTTPS且评委可直接访问。医学方向要求数据可靠、注明来源并由专业人员复核，不替代诊疗意见。赛题PDF尚未提供，团队资格、最新变动和PDF细则仍需核对。
+提交入口：[天猫OPC孵化赛道初赛](https://www.tuotuzju.com/hackathon/2/challenges?track=campus&stage=initial)。2026年10月17日重新核实，官网当前显示初赛10.18 00:00—10.20 23:00，线上、自由命题、尚未开放，鼓励运行演示、试点验证与用户反馈；GitHub与魔搭链接需为HTTPS且评委可直接访问。医学方向要求数据可靠、注明来源并由专业人员复核，不替代诊疗意见。赛题PDF尚未提供，团队资格、最新变动和PDF细则仍需核对。
+
+本轮除项目名称、GitHub和魔搭链接，还需商业一页纸（PDF/PPT/PPTX≤30MB）与Demo视频（MP4/WebM/MOV≤200MB），网页均有必填标记。商业附件已准备business-onepager.pdf；视频待录制，尚未完成正式提交。
