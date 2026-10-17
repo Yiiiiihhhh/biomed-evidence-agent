@@ -1,0 +1,209 @@
+{
+  "id": "416eb010-c01d-4443-ae1f-8635953a2998",
+  "plan": {
+    "topic": "干扰素STAT1病毒研究",
+    "query": "STAT1 AND interferon AND virus",
+    "yearStart": 2020,
+    "yearEnd": 2026,
+    "limit": 3,
+    "questions": [
+      "负反馈机制是什么？"
+    ]
+  },
+  "mode": "retrieval",
+  "status": "needs_review",
+  "stage": "complete",
+  "revision": 9,
+  "createdAt": "2026-10-15T05:54:56.701Z",
+  "papers": [
+    {
+      "title": "Pyruvate is a natural suppressor of interferon signaling by inducing STAT1 protein pyruvylation.",
+      "authors": [
+        "Zuo Y",
+        "Wang Q",
+        "Tian W",
+        "Wang X",
+        "Zheng Z",
+        "He W",
+        "Zhang R",
+        "Zhao Q",
+        "Miao Y",
+        "Yuan Y",
+        "Zhang T",
+        "Cui Q",
+        "Zhang Y",
+        "Liu C",
+        "Zhou H",
+        "Zheng H"
+      ],
+      "year": 2026,
+      "journal": "Cell",
+      "doi": "10.1016/j.cell.2026.01.023",
+      "pmid": "41763198",
+      "pmcid": "",
+      "sources": [
+        "PubMed"
+      ],
+      "publicationStatus": "corrected",
+      "id": "P001",
+      "identity": {
+        "status": "verified",
+        "reason": "Crossref DOI 记录与检索记录的题名（含来源副标题）、第一作者和年份一致。",
+        "source": "Crossref",
+        "record": {
+          "title": "Pyruvate is a natural suppressor of interferon signaling by inducing STAT1 protein pyruvylation",
+          "author": "Zuo",
+          "year": 2026,
+          "doi": "10.1016/j.cell.2026.01.023"
+        }
+      }
+    },
+    {
+      "title": "Meningeal macrophages protect against viral neuroinfection.",
+      "authors": [
+        "Rebejac J",
+        "Eme-Scolan E",
+        "Arnaud Paroutaud L",
+        "Kharbouche S",
+        "Teleman M",
+        "Spinelli L",
+        "Gallo E",
+        "Roussel-Queval A",
+        "Zarubica A",
+        "Sansoni A",
+        "Bardin Q",
+        "Hoest P",
+        "Michallet MC",
+        "Brousse C",
+        "Crozat K",
+        "Manglani M",
+        "Liu Z",
+        "Ginhoux F",
+        "McGavern DB",
+        "Dalod M",
+        "Malissen B",
+        "Lawrence T",
+        "Rua R"
+      ],
+      "year": 2022,
+      "journal": "Immunity",
+      "doi": "10.1016/j.immuni.2022.10.005",
+      "pmid": "36323311",
+      "pmcid": "PMC13659903",
+      "sources": [
+        "PubMed"
+      ],
+      "publicationStatus": "published",
+      "id": "P002",
+      "identity": {
+        "status": "verified",
+        "reason": "Crossref DOI 记录与检索记录的题名（含来源副标题）、第一作者和年份一致。",
+        "source": "Crossref",
+        "record": {
+          "title": "Meningeal macrophages protect against viral neuroinfection",
+          "author": "Rebejac",
+          "year": 2022,
+          "doi": "10.1016/j.immuni.2022.10.005"
+        }
+      }
+    },
+    {
+      "title": "RNA helicase DDX5 enables STAT1 mRNA translation and interferon signalling in hepatitis B virus replicating hepatocytes.",
+      "authors": [
+        "Sun J",
+        "Wu G",
+        "Pastor F",
+        "Rahman N",
+        "Wang WH",
+        "Zhang Z",
+        "Merle P",
+        "Hui L",
+        "Salvetti A",
+        "Durantel D",
+        "Yang D",
+        "Andrisani O"
+      ],
+      "year": 2022,
+      "journal": "Gut",
+      "doi": "10.1136/gutjnl-2020-323126",
+      "pmid": "34021034",
+      "pmcid": "PMC8606016",
+      "sources": [
+        "PubMed"
+      ],
+      "publicationStatus": "published",
+      "id": "P003",
+      "identity": {
+        "status": "conflict",
+        "reason": "需人工确认差异：年份：检索记录2022 / DOI来源2021，可能存在网络首发与卷期年份差异。差异不等于虚假文献。",
+        "differences": [
+          "年份：检索记录2022 / DOI来源2021，可能存在网络首发与卷期年份差异"
+        ],
+        "source": "Crossref",
+        "record": {
+          "title": "RNA helicase DDX5 enables STAT1 mRNA translation and interferon signalling in hepatitis B virus replicating hepatocytes",
+          "author": "Sun",
+          "year": 2021,
+          "doi": "10.1136/gutjnl-2020-323126"
+        }
+      }
+    }
+  ],
+  "executions": [
+    {
+      "source": "Europe PMC",
+      "ok": false,
+      "query": "(STAT1 AND interferon AND virus) AND FIRST_PDATE:[2020-01-01 TO 2026-12-31]",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28STAT1+AND+interferon+AND+virus%29+AND+FIRST_PDATE%3A%5B2020-01-01+TO+2026-12-31%5D&format=json&resultType=core&pageSize=40&sort=RELEVANCE",
+      "hits": 0,
+      "fetched": 0,
+      "error": "查询失败或超时；不表示查无文献",
+      "at": "2026-10-15T05:54:57.842Z"
+    },
+    {
+      "source": "PubMed",
+      "ok": true,
+      "query": "(STAT1 AND interferon AND virus) AND (2020:2026[dp])",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28STAT1+AND+interferon+AND+virus%29+AND+%282020%3A2026%5Bdp%5D%29&retmode=json&retmax=40&sort=relevance",
+      "hits": 633,
+      "fetched": 40,
+      "truncated": true,
+      "at": "2026-10-15T05:54:59.491Z"
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-10-15T05:54:56.701Z",
+      "message": "已创建免费检索与身份核验任务；不调用AI，不生成综述。"
+    },
+    {
+      "at": "2026-10-15T05:54:59.492Z",
+      "message": "检索 40 条，去重 40 条，限量选取 3 篇；按相关性排序，待身份核验。"
+    },
+    {
+      "at": "2026-10-15T05:55:01.173Z",
+      "message": "P001：Crossref DOI 记录与检索记录的题名（含来源副标题）、第一作者和年份一致。"
+    },
+    {
+      "at": "2026-10-15T05:55:01.510Z",
+      "message": "P002：Crossref DOI 记录与检索记录的题名（含来源副标题）、第一作者和年份一致。"
+    },
+    {
+      "at": "2026-10-15T05:55:01.873Z",
+      "message": "P003：需人工确认差异：年份：检索记录2022 / DOI来源2021，可能存在网络首发与卷期年份差异。差异不等于虚假文献。；免费流程完成，原始研究问题尚未被AI作答。"
+    }
+  ],
+  "error": null,
+  "updatedAt": "2026-10-15T05:55:01.873Z",
+  "rawCount": 40,
+  "uniqueCount": 40,
+  "excludedRetracted": 0,
+  "candidateCount": 40,
+  "qa": [
+    {
+      "name": "仅完成限量检索和身份字段核验，未做AI阅读或综述",
+      "status": "review"
+    }
+  ],
+  "disclosure": "真实免费检索记录；移除了摘要正文；没有调用AI模型。"
+}

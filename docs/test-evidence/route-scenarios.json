@@ -1,0 +1,150 @@
+{
+  "at": "2026-10-15T06:01:44.915Z",
+  "kind": "模拟用户输入；运行实际API路由，外部来源、模型与存储为离线fixtures，不涉及真实付费或线上云存储",
+  "total": 21,
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "没有会话直接开始研究",
+      "expected": "401，提示刷新空间，不调用模型",
+      "actual": "工作空间已过期，请刷新页面后重试。",
+      "status": "PASS"
+    },
+    {
+      "name": "正常研究问题：机制、临床、医学AI",
+      "expected": "三种计划均接受，原始问题保留",
+      "actual": [
+        "STAT1信号在病毒感染中的负反馈调控",
+        "SGLT2抑制剂在心力衰竭中的临床证据",
+        "深度学习胸片模型的跨医院外部验证"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "遗漏英文检索词",
+      "expected": "400 INVALID_QUERY，不调用模型",
+      "actual": "请填写英文检索词，可用 AND、OR 和括号组合。",
+      "status": "PASS"
+    },
+    {
+      "name": "年份前后颠倒",
+      "expected": "400，提示检查年份",
+      "actual": "请检查年份范围，目标篇数须在 1–10 之间。",
+      "status": "PASS"
+    },
+    {
+      "name": "目标篇数输入0",
+      "expected": "拒绝0，不应静默改成5",
+      "actual": "已拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "一次填写6个问题",
+      "expected": "明确提示上限，不应静默丢掉第6个问题",
+      "actual": "已拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "检索词只有AND OR",
+      "expected": "拒绝没有实际概念词的检索式",
+      "actual": "已拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "模型余额不足",
+      "expected": "402，提示余额，研究尚未创建",
+      "actual": "DeepSeek 账户余额不足。请到创建此密钥的账号查看余额；已有文献结果已保留。",
+      "status": "PASS"
+    },
+    {
+      "name": "模型密钥错误",
+      "expected": "401，明确提示密钥无效",
+      "actual": "模型密钥无效或已停用，请检查后重新测试。",
+      "status": "PASS"
+    },
+    {
+      "name": "创建研究并执行检索",
+      "expected": "模型预检成功，创建UUID，选取来源文献",
+      "actual": {
+        "stage": "verify",
+        "papers": 1
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "公开来源全部故障",
+      "expected": "503/502，任务暂停，不记作查无",
+      "actual": "两个文献来源均未能完成查询，请稍后重试；不会将网络故障记为查无。",
+      "status": "PASS"
+    },
+    {
+      "name": "跨用户读取另一人的研究",
+      "expected": "404，返回中不含原用户主题或记录",
+      "actual": "找不到这项研究，或你没有访问权限。",
+      "status": "PASS"
+    },
+    {
+      "name": "过期revision继续执行",
+      "expected": "409，不执行新的模型调用",
+      "actual": "研究记录已更新，请刷新后继续。",
+      "status": "PASS"
+    },
+    {
+      "name": "文献身份核验",
+      "expected": "进入阅读阶段，核验记录可追溯",
+      "actual": "Crossref DOI 记录与检索记录的题名（含来源副标题）、第一作者和年份一致。",
+      "status": "PASS"
+    },
+    {
+      "name": "两个窗口同时点继续",
+      "expected": "只允许一个付费阅读请求，另一个返回409",
+      "actual": {
+        "secondStatus": 409,
+        "modelCalls": 1,
+        "evidence": 1
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "证据到综述的完整模拟",
+      "expected": "生成草稿，保留真实fixture引用和人工复核状态",
+      "actual": {
+        "stage": "complete",
+        "status": "needs_review",
+        "claims": 1
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "密钥不进入结果或云端记录",
+      "expected": "返回和持久化快照均不含测试密钥",
+      "actual": "未发现密钥",
+      "status": "PASS"
+    },
+    {
+      "name": "来源一条缺DOI但PMID相同",
+      "expected": "应去重为一篇，不占两次目标名额",
+      "actual": 1,
+      "status": "PASS"
+    },
+    {
+      "name": "错误DOI对应另一题名",
+      "expected": "存疑，明确指出不一致",
+      "actual": "所填 DOI 对应的题录与引用信息不一致，待人工确认。",
+      "status": "PASS"
+    },
+    {
+      "name": "书籍条目误放批量期刊核验",
+      "expected": "未支持，不计查无",
+      "actual": "本轮仅核验期刊论文，该文献类型未核验。",
+      "status": "PASS"
+    },
+    {
+      "name": "跨站提交研究请求",
+      "expected": "403，阻止非同源请求",
+      "actual": "请求来源不允许。",
+      "status": "PASS"
+    }
+  ]
+}

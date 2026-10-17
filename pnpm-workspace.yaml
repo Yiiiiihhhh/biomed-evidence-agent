@@ -1,0 +1,4 @@
+nodeLinker: hoisted
+verifyDepsBeforeRun: warn
+allowBuilds:
+  esbuild: true

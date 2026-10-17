@@ -1,0 +1,78 @@
+{
+  "at": "2026-10-15T07:17:40.802Z",
+  "kind": "独立Node生产构建HTTP测试；仅在BIOMED_LIVE_TEST=1时执行真实公开检索；不使用模型密钥",
+  "total": 16,
+  "passed": 16,
+  "results": [
+    {
+      "name": "健康检查和完整前端资源",
+      "status": "PASS",
+      "detail": "200；包含真实JS和CSS"
+    },
+    {
+      "name": "存档明确注明未调用AI",
+      "status": "PASS",
+      "detail": "7个历史检索主题"
+    },
+    {
+      "name": "初始化两个隔离的匿名空间",
+      "status": "PASS",
+      "detail": "随机256位会话，未使用用户账号"
+    },
+    {
+      "name": "缺会话和伪造会话不可读历史",
+      "status": "PASS"
+    },
+    {
+      "name": "免费任务无需密钥即可创建，尚不进行检索",
+      "status": "PASS",
+      "detail": "512dad15-a575-4132-935c-40eb61b65c32"
+    },
+    {
+      "name": "自己的任务可读取，另一空间不可读",
+      "status": "PASS"
+    },
+    {
+      "name": "过期revision在外部请求前被拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "暂停会保存并递增版本",
+      "status": "PASS",
+      "detail": 2
+    },
+    {
+      "name": "重启后恢复同一空间与任务",
+      "status": "PASS"
+    },
+    {
+      "name": "错误输入与AI无密钥都不创建任务",
+      "status": "PASS"
+    },
+    {
+      "name": "跨站写入拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "畸形JSON和超大请求可见失败",
+      "status": "PASS"
+    },
+    {
+      "name": "空核验与书籍返回可解释状态",
+      "status": "PASS"
+    },
+    {
+      "name": "数据目录和任意路径不可公开下载",
+      "status": "PASS"
+    },
+    {
+      "name": "撤销空间凭据后无法再访问",
+      "status": "PASS"
+    },
+    {
+      "name": "反向代理Host变化时允许配置域名，继续拒绝其他来源",
+      "status": "PASS",
+      "detail": "正确公开来源201，其他来源403"
+    }
+  ]
+}

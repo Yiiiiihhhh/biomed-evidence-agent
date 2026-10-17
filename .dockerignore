@@ -1,0 +1,9 @@
+.git
+node_modules
+data
+.env
+.env.*
+*.sqlite*
+test-results
+dist
+.build-cache

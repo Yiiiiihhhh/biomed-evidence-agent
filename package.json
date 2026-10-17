@@ -1,0 +1,8 @@
+{
+  "name": "biomed-evidence-agent", "version": "1.0.0", "private": true, "type": "module",
+  "description": "BioMed 循证文献工作台 · AI+生物医学研究",
+  "engines": {"node": ">=24.0.0"},
+  "scripts": {"build": "node scripts/build.mjs", "start": "node dist/server.mjs", "test": "node --test tests/research.test.mjs tests/storage.test.mjs", "test:http": "node tests/portable-http.mjs", "test:routes":"node tests/route-scenarios.mjs"},
+  "dependencies": {"react": "19.2.6", "react-dom": "19.2.6", "lucide-react": "1.31.0"},
+  "devDependencies": {"esbuild": "0.28.2"}
+}

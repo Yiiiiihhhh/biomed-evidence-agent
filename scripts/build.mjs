@@ -1,0 +1,12 @@
+import {createRequire} from 'node:module';
+import {mkdir,copyFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+const require=createRequire(import.meta.url);
+const {build}=require(process.env.BIOMED_BUILD_MODULES ? path.join(process.env.BIOMED_BUILD_MODULES,'esbuild') : 'esbuild');
+const root=process.cwd(),nodePaths=process.env.BIOMED_BUILD_MODULES?[process.env.BIOMED_BUILD_MODULES]:[];
+await mkdir('dist/public',{recursive:true});
+const common={bundle:true,alias:{'@':root},nodePaths,logLevel:'info'};
+await build({...common,entryPoints:['client.tsx'],outfile:'dist/public/app.js',platform:'browser',format:'esm',jsx:'automatic',minify:true,define:{'process.env.NODE_ENV':'"production"'}});
+await build({...common,entryPoints:['server.mjs'],outfile:'dist/server.mjs',platform:'node',target:'node24',format:'esm'});
+await copyFile('public/retrieval-snapshot.json','dist/public/retrieval-snapshot.json');
+await writeFile('dist/public/index.html','<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="BioMed循证文献工作台：真实文献检索、引用核验与可追溯AI阅读。"><title>BioMed 循证文献工作台</title><link rel="stylesheet" href="./app.css"></head><body><div id="root"></div><noscript>请开启 JavaScript 使用文献工作台。</noscript><script type="module" src="./app.js"></script></body></html>');

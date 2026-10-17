@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {openStorage} from '../lib/storage.mjs';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+test('SQLite条件写入：同版本并发只能成功一次，失败不能覆盖',async()=>{const s=openStorage(':memory:');try{const first=await s.bucket.put('research/a/task','{"n":1}');const a=await s.bucket.put('research/a/task','{"n":2}',{onlyIf:{etagMatches:first.etag}});const b=await s.bucket.put('research/a/task','{"n":3}',{onlyIf:{etagMatches:first.etag}});assert.ok(a);assert.equal(b,null);assert.equal((await(await s.bucket.get('research/a/task')).json()).n,2);}finally{s.close();}});
+test('两个匿名空间的会话不同，伪造和撤销的凭据不能恢复身份',()=>{const s=openStorage(':memory:');try{const a=s.newSession(),b=s.newSession();assert.notEqual(a.user.userId,b.user.userId);assert.equal(s.findSession('a'.repeat(64)),null);assert.equal(s.findSession(a.token).userId,a.user.userId);s.revoke(a.token);assert.equal(s.findSession(a.token),null);assert.ok(s.findSession(b.token));}finally{s.close();}});
+test('前缀只能列出自己的记录，删除不会影响另一空间',async()=>{const s=openStorage(':memory:');try{await s.bucket.put('research/a/1','{}');await s.bucket.put('research/b/2','{}');assert.deepEqual((await s.bucket.list({prefix:'research/a/'})).objects,[{key:'research/a/1'}]);await s.bucket.delete('research/a/1');assert.equal(await s.bucket.get('research/a/1'),null);assert.ok(await s.bucket.get('research/b/2'));}finally{s.close();}});
+test('重启后会话与研究记录仍可读取',async()=>{const dir=mkdtempSync(path.join(tmpdir(),'biomed-storage-')),file=path.join(dir,'test.sqlite');assert.ok(path.resolve(dir).startsWith(path.resolve(tmpdir())+path.sep)&&path.basename(dir).startsWith('biomed-storage-'));let s=openStorage(file);try{const a=s.newSession();await s.bucket.put('research/a/task','{"n":1}');s.close();s=openStorage(file);assert.equal(s.findSession(a.token).userId,a.user.userId);assert.equal((await(await s.bucket.get('research/a/task')).json()).n,1);}finally{s.close();rmSync(dir,{recursive:true,force:true});}});

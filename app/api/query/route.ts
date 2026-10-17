@@ -1,0 +1,3 @@
+import { callModel } from '@/lib/research.mjs';
+import { errorResponse,json,readBody } from '@/lib/server';
+export async function POST(request:Request){try{const b=await readBody(request);if(typeof b.topic!=='string'||b.topic.length<4||b.topic.length>500)return json({error:'请先填写研究主题。'},400);const out=await callModel(b.key,JSON.stringify({task:'将主题转为精简的英文自由词检索式，用 AND、OR 和英文双引号组合。最多三个概念组，不使用数据库字段标签或 MeSH 词，不编造规范术语；不确定则保留原词。仅输出 query 与中文 explanation，供用户编辑确认。',topic:b.topic}));if(typeof out.query!=='string'||out.query.length>600)return json({error:'未生成合适的检索词，请手动填写。'},502);return json({query:out.query,explanation:String(out.explanation||'请核对后再检索。').slice(0,400)});}catch(e){return errorResponse(e);}}

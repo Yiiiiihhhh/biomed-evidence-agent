@@ -1,0 +1,78 @@
+{
+  "at": "2026-10-15T06:02:06.170Z",
+  "kind": "独立Node生产构建HTTP测试；仅在BIOMED_LIVE_TEST=1时执行真实公开检索；不使用模型密钥",
+  "total": 16,
+  "passed": 15,
+  "results": [
+    {
+      "name": "健康检查和完整前端资源",
+      "status": "PASS",
+      "detail": "200；包含真实JS和CSS"
+    },
+    {
+      "name": "存档明确注明未调用AI",
+      "status": "PASS",
+      "detail": "7个历史检索主题"
+    },
+    {
+      "name": "初始化两个隔离的匿名空间",
+      "status": "PASS",
+      "detail": "随机256位会话，未使用用户账号"
+    },
+    {
+      "name": "缺会话和伪造会话不可读历史",
+      "status": "PASS"
+    },
+    {
+      "name": "免费任务无需密钥即可创建，尚不进行检索",
+      "status": "PASS",
+      "detail": "7ecf84ef-cc8d-4f0e-9a7e-dd18445cf5ae"
+    },
+    {
+      "name": "自己的任务可读取，另一空间不可读",
+      "status": "PASS"
+    },
+    {
+      "name": "过期revision在外部请求前被拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "暂停会保存并递增版本",
+      "status": "PASS",
+      "detail": 2
+    },
+    {
+      "name": "重启后恢复同一空间与任务",
+      "status": "PASS"
+    },
+    {
+      "name": "错误输入与AI无密钥都不创建任务",
+      "status": "PASS"
+    },
+    {
+      "name": "跨站写入拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "畸形JSON和超大请求可见失败",
+      "status": "PASS"
+    },
+    {
+      "name": "空核验与书籍返回可解释状态",
+      "status": "PASS"
+    },
+    {
+      "name": "数据目录和任意路径不可公开下载",
+      "status": "PASS"
+    },
+    {
+      "name": "撤销空间凭据后无法再访问",
+      "status": "PASS"
+    },
+    {
+      "name": "真实公开检索与身份核验完整免费流程",
+      "status": "FAIL",
+      "error": "{\"error\":\"两个文献来源均未能完成查询，请稍后重试；不会将网络故障记为查无。\",\"code\":\"SEARCH_FAILED\",\"run\":{\"id\":\"cc51161c-0bd0-4109-8a9c-8f7b6620446c\",\"plan\":{\"topic\":\"干扰素STAT1病毒研究\",\"query\":\"STAT1 AND interferon AND virus\",\"yearStart\":2020,\"yearEnd\":2026,\"limit\":3,\"questions\":[\"负反馈机制是什么？\"]},\"mode\":\"retrieval\",\"status\":\"blocked\",\"stage\":\"search\",\"revision\":3,\"createdAt\":\"2026-10-15T06:01:46.091Z\",\"papers\":[],\"executions\":[],\"events\":[{\"at\":\"2026-10-15T06:01:46.091Z\",\"message\":\"已创建免费检索与身份核验任务；不调用AI，不生成综述。\"},{\"at\":\"2026-10-15T06:02:06.128Z\",\"message\":\"两个文献来源均未能完成查询，请稍后重试；不会将网络故障记为查无。\"}],\"error\":{\"code\":\"SEARCH_FAILED\",\"message\":\"两个文献来源均未能完成查询，请稍后重试；不会将网络故障记为查无。\"},\"updatedAt\":\"2026-10-15T06:02:06.128Z\"}}\n\n502 !== 200\n"
+    }
+  ]
+}
