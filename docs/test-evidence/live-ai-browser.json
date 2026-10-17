@@ -1,0 +1,53 @@
+{
+  "observedAt": "2026-10-17 11:12 Asia/Shanghai",
+  "kind": "真实魔搭浏览器AI端到端观察，非fixture；不含密钥或原始全文",
+  "space": "https://modelscope.cn/studios/Yiiiiihhhh/biomed-evidence-agent",
+  "topic": "I 型干扰素及 STAT1 信号通路在病毒感染中的调节作用",
+  "query": "(\"type I interferon\" OR interferon) AND STAT1 AND (virus OR viral)",
+  "years": [
+    2020,
+    2026
+  ],
+  "limit": 3,
+  "modelConnectionActualCall": "success",
+  "model": "DeepSeek Flash",
+  "sourceCoverage": [
+    {
+      "source": "PubMed",
+      "hits": 704,
+      "fetched": 40,
+      "truncated": true
+    },
+    {
+      "source": "Europe PMC",
+      "status": "query_incomplete"
+    }
+  ],
+  "selectedPapers": 3,
+  "identityConsistent": 3,
+  "readProcessed": 3,
+  "matchedQuotes": 9,
+  "reviewGenerated": true,
+  "readingScope": "all three papers read from abstracts; full-text extraction not verified by this run",
+  "paperIdsAndDois": {
+    "P001": "10.1016/j.cell.2026.01.023",
+    "P002": "10.1007/s10875-020-00847-x",
+    "P003": "10.1038/s41423-025-01336-0"
+  },
+  "publicationFlags": {
+    "P001": "corrected; correction content has not been professionally assessed"
+  },
+  "programChecks": {
+    "referencesInIncludedSet": true,
+    "claimsLinkedToEvidence": true,
+    "quotesMatchedProvidedText": true,
+    "scopeLabelled": true
+  },
+  "scientificReviewComplete": false,
+  "formalRiskOfBiasAssessmentComplete": false,
+  "exportSavedVerified": false,
+  "exportObservation": "Clicked full-record export; automatic download event timed out; cannot equate this with a verified file or proven product failure",
+  "paidModelUsed": true,
+  "actualFeeMeasured": false,
+  "userSecretStoredInThisEvidence": false
+}

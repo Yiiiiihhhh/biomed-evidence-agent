@@ -94,7 +94,7 @@ $env:BIOMED_LIVE_TEST="1"
 npm run test:http
 ```
 
-已在 Windows / Node 24.19 完成构建、27 项核心与存储检查、21 个模拟路由场景，以及16项不依赖外网的HTTP检查。真实检索曾遇到两个公开来源同时超时，系统明确返回SEARCH_FAILED并保留任务。之后魔搭Docker构建及浏览器免费检索、正确引用与错误作者对照通过。模拟路由使用测试专用模型/来源 fixtures，不代表真实 AI 效果评测。见 [docs/testing.md](docs/testing.md)。GitHub CI 已配置，尚未在远端运行；真实付费 AI 阅读和多用户负载仍待验收。
+已在 Windows / Node 24.19 完成构建、27 项核心与存储检查、21 个模拟路由场景，以及16项不依赖外网的HTTP检查。真实检索曾遇到两个公开来源同时超时，系统明确返回SEARCH_FAILED并保留任务。之后魔搭Docker构建及浏览器免费检索、正确引用与错误作者对照通过。模拟路由使用测试专用模型/来源 fixtures，不代表真实 AI 效果评测。见 [docs/testing.md](docs/testing.md)。2026年10月17日[GitHub CI](https://github.com/Yiiiiihhhh/biomed-evidence-agent/actions/runs/38997001782)已通过构建、27项核心/存储、21项模拟路由、16项HTTP及Docker构建，验证代码提交`d1047f6`；真实3篇摘要AI阅读、9条引文匹配和综述生成已于10月17日跑通；科学解释、全文读取、多用户负载和导出落盘仍需进一步验收，见docs/live-ai-acceptance.md。
 
 ## 当前边界
 

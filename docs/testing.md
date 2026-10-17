@@ -9,8 +9,9 @@
 | 独立生产构建HTTP | 本地16/16；此前含外网检查曾16/16、复测15/16 | 最新本地检查增加PUBLIC_ORIGIN代理回归；覆盖前端资源、会话隔离、错误输入、暂停、重启、跨站拒绝、私密文件不可下载。此前外网故障记录保留 |
 | 生产构建 | 通过 | 前端约251KB JS、28KB CSS；服务端约63KB，Node内置SQLite，无运行时第三方依赖安装 |
 | 魔搭Docker与线上浏览器 | 已运行，部分验收通过 | 免费检索3篇、3篇Crossref身份一致；正确引用通过，错误作者存疑；原会话刷新保留研究，新标签页不显示其他记录；导出与未登录访客继续验收 |
-| 远端CI与多用户负载 | 待验收 | GitHub仓库已创建，远端CI等待首次源码提交；未完成负载测试 |
-| 真实付费AI阅读/综述 | 待验收 | 不读取或使用用户原项目私密.env，没有对真实AI科学解释效果做结论 |
+| GitHub CI | 2026-10-17通过 | 代码提交d1047f6：构建、27核心/存储、21模拟路由、16HTTP、Docker构建；[检查记录](https://github.com/Yiiiiihhhh/biomed-evidence-agent/actions/runs/38997001782) |
+| 多用户负载 | 待验收 | 两标签页会话对照不能替代并发负载测试 |
+| 真实AI摘要阅读/综述 | 2026-10-17小规模通过 | 3篇摘要阅读、9条引文匹配、综述生成；科学解释人工复核与全文读取仍未验收，见live-ai-acceptance.md |
 
 核心/存储27项、模拟路由21项与本地HTTP16项均通过。真实检索曾遇到两来源同时超时，返回SEARCH_FAILED并保留任务；该失败保存在live-outage-http.json。之后魔搭浏览器验收成功，但仍不能据此宣称全程稳定。所有工程检查均不构成准确率、科学性或临床有效性指标。
 
@@ -46,3 +47,11 @@
 运行README中的命令即可生成 `test-results/route-scenarios.json` 和 `test-results/portable-http.json`。测试fixture只存在测试脚本中，生产服务器没有测试账号、伪造结果或绕过身份的开关。
 
 真实免费流程依赖公开接口。当外部服务不可达时，测试会失败并留下错误，不能为了测试通过而把来源故障改成空检索结果。
+
+## 2026年10月17日公开发布
+
+完整50文件首次源码已发布到[公开仓库](https://github.com/Yiiiiihhhh/biomed-evidence-agent)，代码提交`d1047f69e24b0729bd153ea23ebbfc5631ecfe91`。[远端CI](https://github.com/Yiiiiihhhh/biomed-evidence-agent/actions/runs/38997001782)全部步骤成功。证据见test-evidence/github-ci.json；未调用付费模型，不代表真实AI科学解释效果。后续若仅更新文档，以该代码提交的CI证据为准。
+
+## 真实AI验收补充
+
+10月17日已跑通实际DeepSeek连接与3篇摘要AI阅读，9条引文匹配、综述生成，见live-ai-acceptance.md与test-evidence/live-ai-browser.json。来源截断、Europe PMC查询未完成及更正标记如实披露。导出落盘尚未确认，不重复调用付费模型冒充导出测试。
